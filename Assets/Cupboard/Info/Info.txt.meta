@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 695c32c4e67d56344b5b1563ad99af4b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283597
+  packageName: Wooden Cupboard
+  packageVersion: 1.0
+  assetPath: Assets/Cupboard/Info/Info.txt
+  uploadId: 810352

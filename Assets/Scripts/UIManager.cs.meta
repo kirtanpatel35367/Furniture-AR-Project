@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 14bf04f346b59004f98c400525855070
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - furniturePanel: {instanceID: 0}
+  - floatingPlusBtn: {instanceID: 0}
+  - sofaBtn: {instanceID: 0}
+  - sofaPrefab: {instanceID: 0}
+  - selectedFurniture: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

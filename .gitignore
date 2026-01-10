@@ -1,0 +1,63 @@
+# =========================
+# Unity generated folders
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Unity Addressables / Burst
+GeneratedAssets/
+Furniture_BurstDebugInformation*/ 
+
+# =========================
+# User / IDE specific
+# =========================
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# =========================
+# OS generated
+# =========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Build outputs
+# =========================
+*.apk
+*.aab
+*.exe
+*.unitypackage
+
+# =========================
+# Backup / temp files
+# =========================
+*.bak
+*.tmp
+*.log
+*.orig
+*.~*
+*.swp
+
+# =========================
+# Crash reports
+# =========================
+sysinfo.txt
+
+# =========================
+# Git noise
+# =========================
+.gitignore~
