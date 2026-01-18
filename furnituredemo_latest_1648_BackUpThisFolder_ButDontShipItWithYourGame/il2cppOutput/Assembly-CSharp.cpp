@@ -446,6 +446,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral69CE07E5C7ADCC833DA3E659BC9009F6C3C1346A
 IL2CPP_EXTERN_C String_t* _stringLiteral6C3B90D0C27E620F9CB6F4530546C591AB0C5E12;
 IL2CPP_EXTERN_C String_t* _stringLiteral71B680ABF9213B3E8FB888056C235C79CFE83314;
 IL2CPP_EXTERN_C String_t* _stringLiteral71BD498E5FC7E3B8709294B88AB8FAB2CFF77CAE;
+IL2CPP_EXTERN_C String_t* _stringLiteral7331981FDED5438FC5E5AFCDD8887B38CC290057;
 IL2CPP_EXTERN_C String_t* _stringLiteral75A94EE44309525CF46FB9C022ED6E9EFAC8B506;
 IL2CPP_EXTERN_C String_t* _stringLiteral794266C8A6A6CB49DBF47B5E6DC5E56E62A80C97;
 IL2CPP_EXTERN_C String_t* _stringLiteral79438BFA365F0EC1900ACE58C7C4EA5C4421713C;
@@ -2980,8 +2981,10 @@ struct FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4  : p
 };
 struct FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___modelRoot;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___originalScale;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___scaleRoot;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___visualRoot;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___visualBaseScale;
+	bool ___isSelected;
 };
 struct FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -4884,6 +4887,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_RotateLocal_m64F197FC1
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Mathf_Approximately_m1DADD012A8FC82E11FB282501AE2EBBF9A77150B_inline (float ___0_a, float ___1_b, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_ScaleModel_mA6E68BF9D851CF7AC94869BC35EAF30C23394238 (FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343* __this, float ___0_factor, float ___1_min, float ___2_max, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_Remove_m808E138D81559C0125C5D12018A905514E9C0054 (FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2 (RuntimeObject* ___0_message, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Transform_get_localScale_m804A002A53A645CDFCD15BB0F37209162720363F (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, float ___1_d, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
@@ -6594,100 +6598,118 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_Awake_m08B68E921E0F6C7
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7331981FDED5438FC5E5AFCDD8887B38CC290057);
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:12>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___modelRoot;
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:14>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___scaleRoot;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
-		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
+		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (L_1)
 		{
-			goto IL_001f;
+			goto IL_001c;
 		}
 	}
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:13>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___modelRoot;
-		NullCheck(L_2);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
-		L_3 = Transform_get_localScale_m804A002A53A645CDFCD15BB0F37209162720363F(L_2, NULL);
-		__this->___originalScale = L_3;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___visualRoot;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_3;
+		L_3 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_2, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_3)
+		{
+			goto IL_0032;
+		}
 	}
 
-IL_001f:
+IL_001c:
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:14>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:16>
+		String_t* L_4;
+		L_4 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(__this, NULL);
+		String_t* L_5;
+		L_5 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral7331981FDED5438FC5E5AFCDD8887B38CC290057, L_4, NULL);
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2(L_5, NULL);
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:17>
+		return;
+	}
+
+IL_0032:
+	{
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:20>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6 = __this->___visualRoot;
+		NullCheck(L_6);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
+		L_7 = Transform_get_localScale_m804A002A53A645CDFCD15BB0F37209162720363F(L_6, NULL);
+		__this->___visualBaseScale = L_7;
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:21>
 		return;
 	}
 }
 // Method Definition Index: 56001
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_SetSelected_m3C355B8BBD5278ECA5D6689D957DFCD047472587 (FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343* __this, bool ___0_selected, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* G_B4_0 = NULL;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* G_B3_0 = NULL;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 G_B5_0;
 	memset((&G_B5_0), 0, sizeof(G_B5_0));
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* G_B5_1 = NULL;
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:19>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___modelRoot;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:26>
+		bool L_0 = __this->___isSelected;
+		bool L_1 = ___0_selected;
+		if ((!(((uint32_t)L_0) == ((uint32_t)L_1))))
 		{
-			goto IL_000f;
+			goto IL_000a;
 		}
 	}
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:20>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:27>
 		return;
 	}
 
-IL_000f:
+IL_000a:
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:22>
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:23>
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:24>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___modelRoot;
-		bool L_3 = ___0_selected;
-		if (L_3)
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:29>
+		bool L_2 = ___0_selected;
+		__this->___isSelected = L_2;
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:31>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:32>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:33>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = __this->___visualRoot;
+		bool L_4 = ___0_selected;
+		if (L_4)
 		{
-			G_B4_0 = L_2;
-			goto IL_0020;
+			G_B4_0 = L_3;
+			goto IL_0022;
 		}
-		G_B3_0 = L_2;
+		G_B3_0 = L_3;
 	}
 	{
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4 = __this->___originalScale;
-		G_B5_0 = L_4;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = __this->___visualBaseScale;
+		G_B5_0 = L_5;
 		G_B5_1 = G_B3_0;
-		goto IL_0030;
+		goto IL_0032;
 	}
 
-IL_0020:
+IL_0022:
 	{
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5 = __this->___originalScale;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6;
-		L_6 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_5, (1.04999995f), NULL);
-		G_B5_0 = L_6;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = __this->___visualBaseScale;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
+		L_7 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_6, (1.20000005f), NULL);
+		G_B5_0 = L_7;
 		G_B5_1 = G_B4_0;
 	}
 
-IL_0030:
+IL_0032:
 	{
 		NullCheck(G_B5_1);
 		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(G_B5_1, G_B5_0, NULL);
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:25>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:34>
 		return;
 	}
 }
@@ -6695,7 +6717,7 @@ IL_0030:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_RotateLocal_m64F197FC10D4DFC6AA2B13DEADBFB29E21DD302D (FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343* __this, float ___0_angle, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:30>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:39>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0;
 		L_0 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
@@ -6703,63 +6725,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_RotateLocal_m64F197FC1
 		float L_2 = ___0_angle;
 		NullCheck(L_0);
 		Transform_Rotate_m683E67853797040312868B69E963D0E97F433EEB(L_0, L_1, L_2, 1, NULL);
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:31>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:40>
 		return;
 	}
 }
 // Method Definition Index: 56003
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_ScaleModel_mA6E68BF9D851CF7AC94869BC35EAF30C23394238 (FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343* __this, float ___0_factor, float ___1_min, float ___2_max, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		s_Il2CppMethodInitialized = true;
-	}
 	float V_0 = 0.0f;
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:36>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___modelRoot;
-		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		bool L_1;
-		L_1 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
-		if (!L_1)
-		{
-			goto IL_000f;
-		}
-	}
-	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:37>
-		return;
-	}
-
-IL_000f:
-	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:39>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___modelRoot;
-		NullCheck(L_2);
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:45>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___scaleRoot;
+		NullCheck(L_0);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
+		L_1 = Transform_get_localScale_m804A002A53A645CDFCD15BB0F37209162720363F(L_0, NULL);
+		float L_2 = ___0_factor;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3;
-		L_3 = Transform_get_localScale_m804A002A53A645CDFCD15BB0F37209162720363F(L_2, NULL);
-		float L_4 = ___0_factor;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_5;
-		L_5 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_3, L_4, NULL);
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:40>
-		float L_6 = L_5.___x;
-		float L_7 = ___1_min;
-		float L_8 = ___2_max;
-		float L_9;
-		L_9 = Mathf_Clamp_mEB9AEA827D27D20FCC787F7375156AF46BB12BBF_inline(L_6, L_7, L_8, NULL);
-		V_0 = L_9;
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:41>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_10 = __this->___modelRoot;
+		L_3 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_1, L_2, NULL);
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:46>
+		float L_4 = L_3.___x;
+		float L_5 = ___1_min;
+		float L_6 = ___2_max;
+		float L_7;
+		L_7 = Mathf_Clamp_mEB9AEA827D27D20FCC787F7375156AF46BB12BBF_inline(L_4, L_5, L_6, NULL);
+		V_0 = L_7;
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:47>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_8 = __this->___scaleRoot;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_9;
+		L_9 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
+		float L_10 = V_0;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
-		L_11 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
-		float L_12 = V_0;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
-		L_13 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_11, L_12, NULL);
-		NullCheck(L_10);
-		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(L_10, L_13, NULL);
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:42>
+		L_11 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_9, L_10, NULL);
+		NullCheck(L_8);
+		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(L_8, L_11, NULL);
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:48>
 		return;
 	}
 }
@@ -6773,12 +6772,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FurnitureInstance_Remove_m808E138D81559C
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:47>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:53>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0;
 		L_0 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_0, NULL);
-		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:48>
+		//<source_info:C:/Unity Projects/Furniture/Assets/Scripts/Furniture/FurnitureInstance.cs:54>
 		return;
 	}
 }

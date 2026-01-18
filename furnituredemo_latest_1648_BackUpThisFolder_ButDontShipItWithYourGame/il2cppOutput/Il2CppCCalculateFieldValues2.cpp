@@ -17547,8 +17547,10 @@ struct FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4  : p
 };
 struct FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___modelRoot;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___originalScale;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___scaleRoot;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___visualRoot;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___visualBaseScale;
+	bool ___isSelected;
 };
 struct FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -24630,9 +24632,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7940[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7941[8] = 
 {
 	static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___raycastManager)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___minScale)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___maxScale)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___longPressDuration)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___selectedFurniture)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___longPressTimer)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4, ___isDragging)),static_cast<int32_t>(offsetof(FurnitureGestureController_tBB4413240D3BBD9A0CC1F0B35E2CB59012BC55D4_StaticFields, ___hits)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7942[2] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7942[4] = 
 {
-	static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___modelRoot)),static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___originalScale)),};
+	static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___scaleRoot)),static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___visualRoot)),static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___visualBaseScale)),static_cast<int32_t>(offsetof(FurnitureInstance_tE079319DFF6EC1E41BC75E2D84D0F8A563F7F343, ___isSelected)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7943[6] = 
 {
 	static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___placementController)),static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___uiManager)),static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___sofaPrefab)),static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___tablePrefab)),static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___bedPrefab)),static_cast<int32_t>(offsetof(FurnitureSelectionManager_t9CD274047765BA2A12DDDEAD361AE92D26EEACCE, ___cupboardPrefab)),};
